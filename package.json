@@ -1,0 +1,32 @@
+{
+  "name": "express-demo",
+  "version": "1.0.0",
+  "description": "This demo includes small example for writing the NodeJS application with express ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaydipsinhv/express-demo.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "beginner"
+  ],
+  "author": "Jaydipsinh Vaghela",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jaydipsinhv/express-demo/issues"
+  },
+  "homepage": "https://github.com/Jaydipsinhv/express-demo#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  }
+}
