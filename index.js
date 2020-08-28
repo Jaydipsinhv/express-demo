@@ -24,7 +24,7 @@ app.get('/author-designation', (req, res) => {
 });
 
 // API endpoint to generate the error with in code to verify overall error handling
-app.get('/error', (req, res) => {
+app.get('/error', () => {
   throw new Error('Generate the error in code to test overall error handling');
 });
 
@@ -38,7 +38,7 @@ app.use('/', (req, res) => {
 });
 
 // handle the overall error generated within code
-app.use((error, req, res, next) => {
+app.use((error, req, res) => {
   if (error) {
     // TODO you can send the email to your developer team who need to take care for error handling
     res.status(error.status || 500).json({
