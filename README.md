@@ -1,5 +1,5 @@
-# Handle the errors properly with express middleware 
-This demo includes small example for writing the NodeJS application with express. Primary goal to create this project is to help junior developer to start learning with NodeJS and Express and make some meaning full APIs. I will add new things to this repo so the examples can be found at single place and everyone can learn something from here.  
+# Main target for this repo is junior developer who learn the Express with NodeJs
+I have started the series of the article where I am going to implement a small demo for the junior developers. For each article, I am using a different feature branch so the developer can focus on a specific branch while reading the article. You can always find the latest code on `develop` and `master` branch which includes all the features that I have completed in demo
 
 ## Technology Used
 
@@ -15,7 +15,3 @@ npm install
 ```
 npm start
 ```
-
-
-# Exception Hanldling 
-You can review the index.js file to view the code of exception handling
