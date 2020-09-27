@@ -1,22 +1,19 @@
+const authorRoutes = require('./author');
+const bookRoutes = require('./book');
+
 module.exports = (app) => {
-  // default route of the API
   app.get('/', (req, res) => {
     res.send('Express Demo API Running...');
   });
 
-  // API endpoint to get the name for author
-  app.get('/author-name', (req, res) => {
-    res.status(200).json({
-      message: 'Jaydipsinh Vaghela',
-    });
-  });
+  // Here we divide the code with modular structure using the Router method of express
+  // We can implement n number of routes based on categories
+  // Here we reduce the complexity by bifurcate the code in small app
 
-  // API endpoint to get the designation for author
-  app.get('/author-designation', (req, res) => {
-    res.status(200).json({
-      message: 'Software Developer',
-    });
-  });
+  // only requests to /author/* will be sent
+  app.use('/author', authorRoutes);
+  // only requests to /book/* will be sent
+  app.use('/book', bookRoutes);
 
   // API endpoint to generate the error with in code to verify overall error handling
   app.get('/error', () => {

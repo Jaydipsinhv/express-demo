@@ -2,7 +2,7 @@ const express = require('express');
 
 const app = express();
 
-// map the route in separate file to manage the code properly
+// map the route in separate file to manage the code complexity
 require('./routes')(app);
 
 // handle the overall error generated within code
