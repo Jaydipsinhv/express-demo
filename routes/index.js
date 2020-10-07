@@ -1,5 +1,6 @@
 const authorRoutes = require('./author');
 const bookRoutes = require('./book');
+const ganisterRoutes = require('./ganister');
 
 module.exports = (app) => {
   app.get('/', (req, res) => {
@@ -14,6 +15,9 @@ module.exports = (app) => {
   app.use('/author', authorRoutes);
   // only requests to /book/* will be sent
   app.use('/book', bookRoutes);
+
+  // only requests to /ganister/* will be sent
+  app.use('/ganister', ganisterRoutes);
 
   // API endpoint to generate the error with in code to verify overall error handling
   app.get('/error', () => {

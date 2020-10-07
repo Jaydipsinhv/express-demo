@@ -1,0 +1,50 @@
+[
+  {
+    "Tyre-pn001": [
+      {
+        "id": "pn005",
+        "name": "Tyre 18 inches"
+      },
+      {
+        "id": "pn002",
+        "name": "Tyre 20 inches"
+      },
+      {
+        "id": "pn003",
+        "name": "Tyre 22 inches"
+      },
+      {
+        "id": "pn004",
+        "name": "Tyre 24 inches"
+      }
+    ]
+  },
+  {
+    "Rim-ja000": [
+      {
+        "id": "ja001",
+        "name": "Steel Rim"
+      },
+      {
+        "id": "ja002",
+        "name": "Alu Rim"
+      }
+    ]
+  },
+  {
+    "an001-antenna": [
+      {
+        "id": "an002",
+        "name": "classic antenna"
+      },
+      {
+        "id": "an003",
+        "name": "roof antenna"
+      }
+    ]
+  },
+  {
+    "id": "tou001",
+    "name": "SunRoof"
+  }
+]
