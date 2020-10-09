@@ -13,6 +13,10 @@ const baseSample = {
 const wheels = {
   id: 'ch001',
   name: 'Wheel',
+  rules: [
+    '([ja001] AND ([pn003] OR [pn004] OR [pn002]))',
+    '([ja002] AND ([pn002] OR [pn005]))',
+  ],
   components: [
     {
       id: 'pn001',
@@ -43,11 +47,13 @@ const tyreVariants = [
   {
     id: 'pn005',
     name: 'Tyre 18 inches',
+    criteria: [],
     available: true,
   },
   {
     id: 'pn002',
     name: 'Tyre 20 inches',
+    criteria: [],
     available: true,
   },
   {
