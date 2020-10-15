@@ -1,7 +1,74 @@
-version: 2.1
 orbs:
-  node: circleci/node@3.0.0
+  slack: circleci/slack@3.4.2
+  aws-code-deploy: circleci/aws-code-deploy@1.0.1
+version: 2.1
+executors:
+  app-executor:
+    docker:
+      - image: circleci/node:12.19.0
+    working_directory: ~/repo
+  slack-executor:
+    docker:
+      - image: cibuilds/base:latest
+    resource_class: small
+aliases:
+  - &show-current-branch-name
+    run:
+      name: Show current branch
+      command: echo ${CIRCLE_BRANCH}
+  - &restore-cache
+    restore_cache:
+      keys:
+        - app-{{ checksum "package.json"}}
+        - app-
+  - &install-dependencies
+    run:
+      name: Install dependencies
+      command: npm install
+  - &save-cache
+    save_cache:
+      paths:
+        - node_modules
+      key: app-({ checksum "package.json"})
+jobs:
+  build:
+    executor: app-executor
+    steps:
+      - checkout
+      - *show-current-branch-name
+      - *restore-cache
+      - *install-dependencies
+      - *save-cache
+  build-and-push-to-S3:
+    executor: app-executor
+    steps:
+      - checkout
+      - *show-current-branch-name
+      - run:
+          name: Install AWS CLI
+          working_directory: /
+          command: |
+            sudo apt-get -y -qq update
+            sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            sudo unzip awscliv2.zip
+            sudo ./aws/install
+            sudo aws --version
+      - run:
+          name: Build Project
+          command: |
+            npm install
+            zip build.zip -r * .[^.]*
+            pwd
+            ls -a
+            echo "Build Successful"
 workflows:
-  node-tests:
+  build_and_deploy:
     jobs:
-      - node/test
+      - build
+      - build-and-push-to-S3:
+           requires:
+             - build
+           filters:
+            branches:
+              only:
+               - circleci-project-setup
